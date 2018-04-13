@@ -127,6 +127,7 @@
     <ClCompile Include="string修改.cpp" />
     <ClCompile Include="string复制比较.cpp" />
     <ClCompile Include="string容量.cpp" />
+    <ClCompile Include="string插入.cpp" />
     <ClCompile Include="string查找子串.cpp" />
     <ClCompile Include="string输出.cpp" />
     <ClCompile Include="string迭代器.cpp" />
