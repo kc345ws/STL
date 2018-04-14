@@ -5,7 +5,7 @@
 //
 //int main()
 //{
-//	string str;
+//	string str; //只针对字符串
 //
 //	cout << str << " " << str.empty() << endl; //empty空返回1非空返回0
 //
