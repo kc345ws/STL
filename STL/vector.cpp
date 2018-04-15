@@ -2,11 +2,13 @@
 #include<vector>
 #include<algorithm>
 #include<functional>
+#include<array>
+#include<ctime>  //time.h
 using namespace std;
 
-void fun(int i)
+void fun(int n)
 {
-	cout << i;
+	cout << n;
 }
 
 void STLDefine() //定义vector
@@ -55,6 +57,7 @@ void STLConstructor() //vector构造函数
 	}
 
 	//==================================
+
 	vector<int>::iterator ite = vec2.begin();//vector迭代器
 	vector<int>::iterator ite1 = vec2.end();
 
@@ -89,7 +92,7 @@ void STLCapacity() //vector容量
 	//重新分配空间后迭代器失效，必须手动控制迭代器
 
 	cout << vec3.size() << endl;//size()为元素个数
-	vec.resize(3);//改变size,capacity不变
+	vec.resize(3);//改变size,字符小于现有容量则容量不变
 	cout << vec.empty() << endl; //空1非空0
 }
 
@@ -167,6 +170,7 @@ void STLDelete() //删除
 	vec.erase(vec.begin() + 5, vec.end()); //从第n个删除到最后一个
 	for_each(vec.begin(), vec.end(), fun);
 
+	vec.clear();//清楚所有元素
 }
 
 void STLChange() //修改
@@ -183,6 +187,8 @@ void STLChange() //修改
 		*ite = 3;
 	}
 	for_each(vec.begin(), vec.end(),fun);
+
+	//void assign();//重新复制，清除以前的
 }
 
 void STLSwap()
@@ -230,16 +236,45 @@ void STLAlgo()
 	for_each(vec.begin(), vec.end(), fun);
 }
 
-int main()
+void RandomShuffle()
 {
-	/*STLDefine();
-	STLConstructor();*/
-	/*STLCapacity();*/
-	/*STLDO();*/
-	/*STLADD();*/
-	/*STLDelete();*/
-	/*STLChange();*/
-	/*STLSwap();*/
-	STLAlgo();
-	return 0;
+	int Sum = 0;
+	vector<int> vec;
+	for (int i = 0; i < 99; i++)
+	{
+		vec.push_back(0);
+	}
+	/*for_each(vec.begin(), vec.end(), fun);*/
+	vec.push_back(1);
+	srand((unsigned int)time(0));//调用系统时间
+	random_shuffle(vec.begin(), vec.end()); //乱序排序
+	/*for_each(vec.begin(), vec.end(), fun);*/
+	vector<int>::iterator ite = vec.begin();
+	for (ite; ite != vec.end(); ite++)
+	{
+		Sum++;
+		cout << *ite;
+		if (Sum == 10)
+		{
+			Sum %= 10;
+			cout << endl;
+		}
+
+	}
+	
 }
+
+////int main()
+//{
+//	/*STLDefine();
+//	STLConstructor();*/
+//	/*STLCapacity();*/
+//	/*STLDO();*/
+//	/*STLADD();*/
+//	/*STLDelete();*/
+//	/*STLChange();*/
+//	/*STLSwap();*/
+//	/*STLAlgo();*/
+//	/*RandomShuffle();*/
+//	return 0;
+//}

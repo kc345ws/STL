@@ -123,6 +123,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="deque.cpp" />
+    <ClCompile Include="list.cpp" />
     <ClCompile Include="string.cpp" />
     <ClCompile Include="string修改.cpp" />
     <ClCompile Include="string复制比较.cpp" />
